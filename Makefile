@@ -1,8 +1,8 @@
 CC = cc
 
-CFLAGS = -Werror -Wextra -Wall -MMD -MP
+CFLAGS = -Werror -Wextra -Wall -MMD -MP -g
 
-LINKER = -Llibft -llibft
+LINKER = -Llibft -lft
 
 NAME = push_swap
 

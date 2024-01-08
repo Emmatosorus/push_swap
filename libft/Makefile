@@ -45,7 +45,6 @@ SRC = \
 	ft_printf/ft_printf_functions.c \
 	ft_printf/ft_printf_hex_functions.c \
 	get_next_line/get_next_line.c \
-	get_next_line/get_next_line_utils.c \
 	ft_lstnew_bonus.c \
 	ft_lstadd_front_bonus.c \
 	ft_lstsize_bonus.c \
@@ -70,9 +69,6 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	ar -rcs $(NAME) $(OBJ)
-
-bonus:
-	$(MAKE) SRC="$(BONUS)"
 
 clean:
 	rm -f $(OBJ) $(OBJ_D)

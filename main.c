@@ -6,39 +6,41 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 15:24:42 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/08 14:33:26 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/08 15:28:31 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	arg_check(char *nb)
+void	arg_manager(int ac, char **av)
 {
-	
-}
+	int		i;
+	int		j;
+	char	**args;
 
-int	arg_manager(int ac, char **av)
-{
-	int	i;
-
-	i = 0;
+	i = 1;
+	args = NULL;
 	while (i < ac)
 	{
-		if (arg_ckeck(av[i]) == -1)
-			return (-1);
+		j = 0;
+		args = ft_split(av[i], ' ');
+		if (!args)
+			exit(EXIT_FAILURE); // Free structs
+		while (args[j])
+		{
+			ft_printf("%s\n", args[j]);
+			free(args[j]);
+			j++;
+		}
+		free(args);
+
 		i++;
 	}
 }
 
 int	main(int ac, char **av)
 {
-	int	error;
-
 	if (ac <= 1)
 		return (0);
-	error = arg_manager(ac, av);
-	if (error == -1)
-	{
-		ft_printf("Error\n");
-	}
+	arg_manager(ac, av);
 }

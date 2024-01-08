@@ -6,7 +6,7 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 15:24:47 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/08 13:31:18 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/08 14:55:15 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
 # include <unistd.h>
 # include "libft/libft.h"
 
-typedef struct s_list
+typedef struct s_stack
 {
 	int				*content;
 	int				start;
-	struct s_list	*next;
-}					t_list;
+	struct s_stack	*next;
+}					t_a;
 
 #endif
