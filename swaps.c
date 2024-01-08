@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   swaps.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/02 15:24:47 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/08 12:33:10 by epolitze         ###   ########.fr       */
+/*   Created: 2024/01/08 10:06:54 by epolitze          #+#    #+#             */
+/*   Updated: 2024/01/08 10:13:27 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-
-# include <stdio.h> // Remove this for the love of God
-# include <stdlib.h>
-# include <unistd.h>
-# include "ft_printf_ps/ft_printf.h"
-
-typedef struct s_list
+void    swap_a()
 {
-	int				*content;
-	int				start;
-	struct s_list	*next;
-}					t_list;
+    // Swap 2 first elements at top of a
+    // Do nothing if a is empty
+}
 
-#endif
+void    swap_b()
+{
+    // Swap 2 first elements at top of a
+    // Do nothing if a is empty
+}
+
+void    swap_both()
+{
+    // Swap 2 first elements at top of a & b
+}
