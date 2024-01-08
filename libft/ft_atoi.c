@@ -1,44 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/02 15:24:42 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/08 14:33:26 by epolitze         ###   ########.fr       */
+/*   Created: 2023/11/09 15:14:00 by epolitze          #+#    #+#             */
+/*   Updated: 2023/11/16 14:55:37 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-int	arg_check(char *nb)
+int	ft_atoi(const char *str)
 {
-	
-}
+	long	nb;
+	long	i;
+	long	sign;
 
-int	arg_manager(int ac, char **av)
-{
-	int	i;
-
+	nb = 0;
+	sign = 1;
 	i = 0;
-	while (i < ac)
-	{
-		if (arg_ckeck(av[i]) == -1)
-			return (-1);
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
 		i++;
-	}
-}
-
-int	main(int ac, char **av)
-{
-	int	error;
-
-	if (ac <= 1)
-		return (0);
-	error = arg_manager(ac, av);
-	if (error == -1)
+	if (str[i] == '-' || str[i] == '+')
+		if (str[i++] == '-')
+			sign = -1;
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		ft_printf("Error\n");
+		if (nb != (nb * 10 + (str[i] - 48)) / 10)
+			return ((int)(sign + 1) / 2 / -1);
+		nb = (nb * 10) + (str[i++] - 48);
 	}
+	return (nb * sign);
 }

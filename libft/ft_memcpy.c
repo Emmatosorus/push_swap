@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/02 15:24:47 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/08 13:31:18 by epolitze         ###   ########.fr       */
+/*   Created: 2023/11/07 14:22:51 by epolitze          #+#    #+#             */
+/*   Updated: 2023/11/16 14:03:54 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include <stdio.h> // Remove this for the love of God
-# include <stdlib.h>
-# include <unistd.h>
-# include "libft/libft.h"
-
-typedef struct s_list
+void	*ft_memcpy(void *to, const void *from, size_t n)
 {
-	int				*content;
-	int				start;
-	struct s_list	*next;
-}					t_list;
+	unsigned char	*ptr1;
+	unsigned char	*ptr2;
 
-#endif
+	ptr1 = (unsigned char *)to;
+	ptr2 = (unsigned char *)from;
+	if (!from && !to)
+		return (NULL);
+	while (n > 0)
+	{
+		*ptr1 = *ptr2;
+		ptr1++;
+		ptr2++;
+		n--;
+	}
+	return (to);
+}

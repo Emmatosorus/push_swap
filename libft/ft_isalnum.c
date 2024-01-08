@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/02 15:24:47 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/08 13:31:18 by epolitze         ###   ########.fr       */
+/*   Created: 2023/11/06 16:22:03 by epolitze          #+#    #+#             */
+/*   Updated: 2023/11/16 13:26:54 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include <stdio.h> // Remove this for the love of God
-# include <stdlib.h>
-# include <unistd.h>
-# include "libft/libft.h"
-
-typedef struct s_list
+int	ft_isalnum(int c)
 {
-	int				*content;
-	int				start;
-	struct s_list	*next;
-}					t_list;
-
-#endif
+	if (((c >= 'A') && (c <= 'Z')) || ((c >= 'a') && (c <= 'z')))
+		return (1);
+	else if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
+}

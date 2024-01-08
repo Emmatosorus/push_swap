@@ -1,44 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/02 15:24:42 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/08 14:33:26 by epolitze         ###   ########.fr       */
+/*   Created: 2023/11/08 11:36:40 by epolitze          #+#    #+#             */
+/*   Updated: 2023/11/16 14:41:23 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	arg_check(char *nb)
+size_t	ft_strlcat(char *dest, const char *src, size_t n)
 {
-	
-}
-
-int	arg_manager(int ac, char **av)
-{
-	int	i;
+	size_t	i;
+	size_t	destlen;
+	size_t	srclen;
 
 	i = 0;
-	while (i < ac)
+	destlen = 0;
+	srclen = ft_strlen(src);
+	while (dest[destlen] && destlen < n)
+		destlen++;
+	if (n == 0)
+		return (destlen + srclen);
+	while (src[i] && i + destlen + 1 < n)
 	{
-		if (arg_ckeck(av[i]) == -1)
-			return (-1);
+		dest[destlen + i] = src[i];
 		i++;
 	}
-}
-
-int	main(int ac, char **av)
-{
-	int	error;
-
-	if (ac <= 1)
-		return (0);
-	error = arg_manager(ac, av);
-	if (error == -1)
-	{
-		ft_printf("Error\n");
-	}
+	if (destlen < n)
+		dest[destlen + i] = '\0';
+	return (destlen + srclen);
 }

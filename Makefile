@@ -2,7 +2,7 @@ CC = cc
 
 CFLAGS = -Werror -Wextra -Wall -MMD -MP
 
-LINKER = -Lft_printf_ps -lftprintf	
+LINKER = -Llibft -llibft
 
 NAME = push_swap
 
@@ -23,16 +23,16 @@ all : $(NAME)
 -include $(OBJ_D)
 
 $(NAME) : $(OBJ)
-	$(MAKE) -C ft_printf_ps
+	$(MAKE) -C libft
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME) $(LINKER)
 
 
 clean:
-	$(MAKE) -C ft_printf_ps clean
+	$(MAKE) -C libft clean
 	rm -f $(OBJ) $(OBJ_D)
 
 fclean:	
-	$(MAKE) -C ft_printf_ps fclean
+	$(MAKE) -C libft fclean
 	rm -f $(OBJ) $(OBJ_D) $(NAME)
 
 re: fclean all

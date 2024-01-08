@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/02 15:24:47 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/08 13:31:18 by epolitze         ###   ########.fr       */
+/*   Created: 2023/11/13 15:41:07 by epolitze          #+#    #+#             */
+/*   Updated: 2023/11/15 16:42:07 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include <stdio.h> // Remove this for the love of God
-# include <stdlib.h>
-# include <unistd.h>
-# include "libft/libft.h"
-
-typedef struct s_list
+void	ft_putnbr_fd(int n, int fd)
 {
-	int				*content;
-	int				start;
-	struct s_list	*next;
-}					t_list;
+	char	c;
+	long	nb;
 
-#endif
+	nb = n;
+	if (nb < 0)
+	{
+		write(fd, "-", 1);
+		nb *= -1;
+	}
+	c = nb % 10 + 48;
+	nb = nb / 10;
+	if (nb != 0)
+		ft_putnbr_fd(nb, fd);
+	write(fd, &c, 1);
+	return ;
+}

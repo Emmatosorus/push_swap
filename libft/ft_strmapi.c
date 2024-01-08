@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/02 15:24:47 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/08 13:31:18 by epolitze         ###   ########.fr       */
+/*   Created: 2023/11/13 15:07:26 by epolitze          #+#    #+#             */
+/*   Updated: 2023/11/15 17:15:06 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include <stdio.h> // Remove this for the love of God
-# include <stdlib.h>
-# include <unistd.h>
-# include "libft/libft.h"
-
-typedef struct s_list
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int				*content;
-	int				start;
-	struct s_list	*next;
-}					t_list;
+	size_t	i;
+	size_t	len;
+	char	*str;
 
-#endif
+	i = 0;
+	len = ft_strlen(s);
+	str = (char *)ft_calloc(len + 1, sizeof(char));
+	if (!str)
+		return (NULL);
+	while (s[i])
+	{
+		str[i] = f(i, s[i]);
+		i++;
+	}
+	return (str);
+}
