@@ -1,41 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/15 11:14:12 by epolitze          #+#    #+#             */
-/*   Updated: 2023/11/15 14:07:51 by epolitze         ###   ########.fr       */
+/*   Created: 2023/11/15 11:09:33 by epolitze          #+#    #+#             */
+/*   Updated: 2024/01/09 14:30:10 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../push_swap.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+void	ft_lstiter(t_stack *lst, void (*f)(void *))
 {
-	void	*c;
-	t_list	*nwlst;
-	t_list	*temp;
+	t_stack	*ptr;
 
-	nwlst = NULL;
-	while (lst && f && del)
+	if (lst && f)
 	{
-		c = f(lst->content);
-		if (!c)
+		ptr = lst;
+		while (ptr)
 		{
-			ft_lstclear(&nwlst, del);
-			return (NULL);
+			f(ptr->content);
+			ptr = ptr->next;
 		}
-		temp = ft_lstnew(c);
-		if (!temp)
-		{
-			(*del)(c);
-			ft_lstclear(&nwlst, del);
-			return (NULL);
-		}
-		ft_lstadd_back(&nwlst, temp);
-		lst = lst->next;
 	}
-	return (nwlst);
+	return ;
 }

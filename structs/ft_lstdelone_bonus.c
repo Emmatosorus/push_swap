@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_lstdelone_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 16:15:31 by epolitze          #+#    #+#             */
-/*   Updated: 2023/11/15 16:18:20 by epolitze         ###   ########.fr       */
+/*   Created: 2023/11/14 15:50:46 by epolitze          #+#    #+#             */
+/*   Updated: 2024/01/09 14:30:12 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../push_swap.h"
 
-t_list	*ft_lstnew(void *content)
+void	ft_lstdelone(t_stack *lst, void (*del)(void *))
 {
-	t_list			*list;
-
-	list = (t_list *)malloc(sizeof(t_list));
-	if (!list)
-		return (NULL);
-	list->content = content;
-	list->next = NULL;
-	return (list);
+	if (!lst || !del)
+		return ;
+	del(lst->content);
+	free(lst);
+	return ;
 }

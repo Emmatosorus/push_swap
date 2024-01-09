@@ -6,41 +6,31 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 15:24:42 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/08 15:28:31 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/09 17:41:21 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	arg_manager(int ac, char **av)
+void	del(int nb)
 {
-	int		i;
-	int		j;
-	char	**args;
-
-	i = 1;
-	args = NULL;
-	while (i < ac)
-	{
-		j = 0;
-		args = ft_split(av[i], ' ');
-		if (!args)
-			exit(EXIT_FAILURE); // Free structs
-		while (args[j])
-		{
-			ft_printf("%s\n", args[j]);
-			free(args[j]);
-			j++;
-		}
-		free(args);
-
-		i++;
-	}
+	nb = 0;
 }
 
 int	main(int ac, char **av)
 {
+	t_stack	*stack_a;
+	int size;
+	// t_stack	stack_b;
+
+	stack_a = NULL;
+	size = 0;
 	if (ac <= 1)
 		return (0);
-	arg_manager(ac, av);
+	//ft_printf("Stage 0 Completed!\n");
+	arg_manager(ac, av, &stack_a);
+	//ft_printf("Stage 42 Completed!\n");
+	size = ft_lstsize(stack_a);
+	printf("%d\n", size);
+	ft_lstclear(&stack_a, del);
 }

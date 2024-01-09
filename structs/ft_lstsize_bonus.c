@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
+/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/15 11:09:33 by epolitze          #+#    #+#             */
-/*   Updated: 2023/11/15 11:12:35 by epolitze         ###   ########.fr       */
+/*   Created: 2023/11/14 14:24:56 by epolitze          #+#    #+#             */
+/*   Updated: 2024/01/09 16:29:14 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../push_swap.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+int	ft_lstsize(t_stack *lst)
 {
-	t_list	*ptr;
+	int		i;
+	t_stack	*ptr;
 
-	if (lst && f)
+	i = 0;
+	ptr = lst;
+	if (!lst)
+		return (0);
+	while (ptr->next != NULL)
 	{
-		ptr = lst;
-		while (ptr)
-		{
-			f(ptr->content);
-			ptr = ptr->next;
-		}
+		i++;
+		//ft_printf("%d\n", ptr->content);
+		ptr = ptr->next;
 	}
-	return ;
+	return (i + 1);
 }

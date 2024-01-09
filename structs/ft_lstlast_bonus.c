@@ -6,15 +6,15 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 14:43:40 by epolitze          #+#    #+#             */
-/*   Updated: 2023/11/14 14:48:11 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/09 14:30:07 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../push_swap.h"
 
-t_list	*ft_lstlast(t_list *lst)
+t_stack	*ft_lstlast(t_stack *lst)
 {
-	t_list	*ptr;
+	t_stack	*ptr;
 
 	if (!lst)
 		return (NULL);

@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone_bonus.c                               :+:      :+:    :+:   */
+/*   struct_tools.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 15:50:46 by epolitze          #+#    #+#             */
-/*   Updated: 2023/11/15 09:52:16 by epolitze         ###   ########.fr       */
+/*   Created: 2024/01/09 14:05:58 by epolitze          #+#    #+#             */
+/*   Updated: 2024/01/09 14:24:20 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../push_swap.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
+t_stack	*ft_struct(int nb, bool start)
 {
-	if (!lst || !del)
-		return ;
-	del(lst->content);
-	free(lst);
-	return ;
+	t_stack			*list;
+
+	list = (t_stack *)malloc(sizeof(t_stack));
+	if (!list)
+		return (NULL);
+	list->content = nb;
+    list->start = start;
+	list->next = NULL;
+	return (list);
 }

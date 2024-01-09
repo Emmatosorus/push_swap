@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
+/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 14:24:56 by epolitze          #+#    #+#             */
-/*   Updated: 2023/11/14 15:01:42 by epolitze         ###   ########.fr       */
+/*   Created: 2023/11/14 14:49:40 by epolitze          #+#    #+#             */
+/*   Updated: 2024/01/09 14:30:21 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../push_swap.h"
 
-int	ft_lstsize(t_list *lst)
+void	ft_lstadd_back(t_stack **lst, t_stack *new)
 {
-	int		i;
-	t_list	*ptr;
+	t_stack	*ptr;
 
-	i = 0;
-	ptr = lst;
-	if (!lst)
-		return (0);
-	while (ptr->next != NULL)
+	if (!new)
+		return ;
+	if (!*lst)
 	{
-		i++;
-		ptr = ptr->next;
+		*lst = new;
+		return ;
 	}
-	return (i + 1);
+	ptr = *lst;
+	while (ptr->next != NULL)
+		ptr = ptr->next;
+	ptr->next = new;
+	return ;
 }
