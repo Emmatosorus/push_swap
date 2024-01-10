@@ -6,7 +6,7 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 16:31:00 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/09 14:23:19 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/10 17:41:30 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <limits.h>
 # include "ft_printf/ft_printf.h"
 # include "get_next_line/get_next_line.h"
 

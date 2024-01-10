@@ -6,7 +6,7 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 14:05:58 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/09 14:24:20 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/10 13:33:49 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ t_stack	*ft_struct(int nb, bool start)
 		return (NULL);
 	list->content = nb;
     list->start = start;
+	list->prev = NULL;
 	list->next = NULL;
 	return (list);
 }

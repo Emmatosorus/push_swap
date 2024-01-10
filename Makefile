@@ -8,15 +8,17 @@ NAME = push_swap
 
 SRC = \
 	main.c \
+	errors/error_manager.c \
 	structs/argument_manager.c \
 	structs/struct_tools.c \
 	structs/ft_lstadd_back_bonus.c \
 	structs/ft_lstclear_bonus.c \
-	structs/ft_lstsize_bonus.c
+	structs/ft_lstsize_bonus.c \
+	structs/ft_lstlast_bonus.c
+
 	# structs/ft_lstnew_bonus.c \
+	# structs/ft_lstdelone_bonus.c \
 	# structs/ft_lstadd_front_bonus.c \
-	# structs/ft_lstlast_bonus.c \
-	# structs/ft_lstdelone_bonus.c \ 
 	# structs/ft_lstiter_bonus.c \
 	# structs/ft_lstmap_bonus.c
 
@@ -35,7 +37,7 @@ all : $(NAME)
 $(NAME) : $(OBJ)
 	$(MAKE) -C libft
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME) $(LINKER)
-	$(MAKE) clean
+	$(MAKE) clean # You might want to remove this
 
 
 clean:

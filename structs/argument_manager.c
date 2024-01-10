@@ -6,36 +6,55 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 13:30:59 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/09 17:44:42 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/10 17:42:38 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	arg_check(char *str)
+int	arg_check(char *str, t_stack **stack_a)
 {
 	int	i;
+	long nb;
 
 	i = 0;
 	while (str[i])
 	{
-		if (!(str[i] >= '0' && str[i] <= '9'))
-			ft_printf("Invalid input\n"); // exit(EXIT_FAILURE); // Call error function
+		if (!((str[i] >= '0' && str[i] <= '9') || str[i] == '-'))
+			error_exit(stack_a);
 		i++;
 	}
+	nb = ft_atoi(str);
+	if (nb == 0 && ft_strlen(str) != 1)
+		error_exit(stack_a);
+	return (nb);
 }
 
 void    create_struct(int nb, t_stack ***stack_a, bool start)
 {
     t_stack *new;
+	t_stack *last;
 
     new = ft_struct(nb, start);
-	//ft_printf("Stage 3 Completed!\n");
 	if (start == false)
+	{
+		last = ft_lstlast(**stack_a);
+		new->prev = last;
     	ft_lstadd_back(*stack_a, new);
+	}
 	else
 		**stack_a = new;
-	//ft_printf("Stage 4 Completed!\n");
+}
+
+void	link_back(t_stack ***stack_a)
+{
+	t_stack *last;
+	t_stack *first;
+
+	first = **stack_a;
+	last = ft_lstlast(**stack_a);
+	first->prev = last;
+	
 }
 
 void	arg_manager(int ac, char **av, t_stack **stack_a)
@@ -45,27 +64,23 @@ void	arg_manager(int ac, char **av, t_stack **stack_a)
     bool    start;
 	char	**args;
 
-	i = 1;
+	i = 0;
     start = true;
-	while (i < ac)
+	while (++i < ac)
 	{
-        if (i > 1)
-            start = false;
 		args = ft_split(av[i], ' ');
 		if (!args)
-			exit(EXIT_FAILURE); // Call error function
+			error_exit(stack_a);
 		j = 0;
-		//ft_printf("Stage 1 Completed!\n");
 		while (args[j])
 		{
-			arg_check(args[j]);
-			//ft_printf("Stage 2 Completed!\n");
-            create_struct(ft_atoi(args[j]), &stack_a, start);
-			//ft_printf("Stage 5 Completed!\n");
+			if (i > 1 || j > 0)
+            	start = false;
+            create_struct(arg_check(args[j], stack_a), &stack_a, start);
 			free(args[j]);
 			j++;
 		}
 		free(args);
-		i++;
 	}
+	link_back(&stack_a);
 }
