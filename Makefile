@@ -1,6 +1,6 @@
 CC = cc
 
-CFLAGS = -Werror -Wextra -Wall -MMD -MP -fsanitize=address
+CFLAGS = -Werror -Wextra -Wall -MMD -MP -g3#-fsanitize=address
 
 LINKER = -Llibft -lft
 

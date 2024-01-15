@@ -6,81 +6,93 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 13:30:59 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/10 17:42:38 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/15 16:05:19 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	arg_check(char *str, t_stack **stack_a)
+int	arg_check(char **args, int j, t_stack **stack_a)
 {
-	int	i;
-	long nb;
+	int		i;
+	long	nb;
+	char	*str;
 
+	str = args[j];
 	i = 0;
 	while (str[i])
 	{
 		if (!((str[i] >= '0' && str[i] <= '9') || str[i] == '-'))
-			error_exit(stack_a);
+			error_exit(stack_a, NULL, args);
 		i++;
 	}
 	nb = ft_atoi(str);
-	if (nb == 0 && ft_strlen(str) != 1)
-		error_exit(stack_a);
+	if ((nb == 0 && ft_strlen(str) != 1) || ft_dup_check(nb, stack_a) == -1)
+		error_exit(stack_a, NULL, args);
 	return (nb);
 }
 
-void    create_struct(int nb, t_stack ***stack_a, bool start)
+int	create_struct(int nb, t_stack **stack_a, bool start)
 {
-    t_stack *new;
-	t_stack *last;
+	t_stack	*new;
+	t_stack	*last;
 
-    new = ft_struct(nb, start);
-	if (start == false)
+	new = ft_struct(nb, start);
+	if (!new)
+		return (-1);
+	else if (start == false)
 	{
-		last = ft_lstlast(**stack_a);
+		last = ft_lstlast(*stack_a);
 		new->prev = last;
-    	ft_lstadd_back(*stack_a, new);
+		ft_lstadd_back(stack_a, new);
 	}
 	else
-		**stack_a = new;
+		*stack_a = new;
+	return (1);
 }
 
-void	link_back(t_stack ***stack_a)
+void	make_list(int i, char **args, t_stack **stack_a)
 {
-	t_stack *last;
-	t_stack *first;
+	int		j;
+	int		error;
+	bool	start;
 
-	first = **stack_a;
-	last = ft_lstlast(**stack_a);
+	j = -1;
+	start = true;
+	while (args[++j])
+	{
+		if (i > 1 || j > 0)
+			start = false;
+		error = create_struct(arg_check(args, j, stack_a), stack_a, start);
+		if (error < 0)
+			error_exit(stack_a, NULL, args);
+		free(args[j]);
+	}
+}
+
+void	link_back(t_stack **stack_a)
+{
+	t_stack	*last;
+	t_stack	*first;
+
+	first = *stack_a;
+	last = ft_lstlast(*stack_a);
 	first->prev = last;
-	
 }
 
 void	arg_manager(int ac, char **av, t_stack **stack_a)
 {
 	int		i;
-	int		j;
-    bool    start;
 	char	**args;
 
 	i = 0;
-    start = true;
 	while (++i < ac)
 	{
 		args = ft_split(av[i], ' ');
 		if (!args)
-			error_exit(stack_a);
-		j = 0;
-		while (args[j])
-		{
-			if (i > 1 || j > 0)
-            	start = false;
-            create_struct(arg_check(args[j], stack_a), &stack_a, start);
-			free(args[j]);
-			j++;
-		}
+			error_exit(stack_a, NULL, NULL);
+		make_list(i, args, stack_a);
 		free(args);
 	}
-	link_back(&stack_a);
+	link_back(stack_a);
 }

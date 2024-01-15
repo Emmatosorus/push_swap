@@ -6,7 +6,7 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 15:14:00 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/10 17:42:01 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/15 15:16:47 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,6 @@ int	ft_atoi(const char *str)
 		nb = (nb * 10) + (str[i++] - 48);
 	}
 	if (nb > INT_MAX || nb < INT_MIN)
-		return(0);
+		return (0);
 	return ((int)nb * sign);
 }

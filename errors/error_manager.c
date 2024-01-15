@@ -6,20 +6,32 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 13:37:28 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/10 15:12:09 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/15 15:07:29 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static void	del(int nb)
+void	error_exit(t_stack **stack_a, char *str, char **strs)
 {
-	nb = 0;
-}
+	int	i;
 
-void    error_exit(t_stack **stack_a)
-{
-    ft_printf("Error\n");
-    ft_lstclear(stack_a, del);
-    exit(EXIT_FAILURE);
+	ft_printf("Error\n");
+	if (str)
+		free(str);
+	if (strs)
+	{
+		i = 0;
+		while (strs[i])
+		{
+			free(strs[i]);
+			i++;
+		}
+		free(strs[i]);
+		free(strs);
+	}
+	ft_lstclear(stack_a);
+	str = NULL;
+	stack_a = NULL;
+	exit(EXIT_FAILURE);
 }

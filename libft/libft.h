@@ -6,7 +6,7 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 16:31:00 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/10 17:41:30 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/11 10:22:47 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <unistd.h>
 # include <limits.h>
 # include "ft_printf/ft_printf.h"
-# include "get_next_line/get_next_line.h"
+//# include "get_next_line/get_next_line.h"
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);

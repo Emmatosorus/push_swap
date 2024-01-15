@@ -43,8 +43,8 @@ SRC = \
 	ft_putnbr_fd.c \
 	ft_printf/ft_printf.c \
 	ft_printf/ft_printf_functions.c \
-	ft_printf/ft_printf_hex_functions.c \
-	get_next_line/get_next_line.c
+	ft_printf/ft_printf_hex_functions.c
+	# get_next_line/get_next_line.c
 
 OBJ = $(SRC:.c=.o)
 OBJ_D = ${OBJ:.o=.d}
