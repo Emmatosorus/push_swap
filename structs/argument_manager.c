@@ -6,7 +6,7 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 13:30:59 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/15 16:05:19 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/15 18:54:43 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ void	link_back(t_stack **stack_a)
 	first = *stack_a;
 	last = ft_lstlast(*stack_a);
 	first->prev = last;
+	last->next = first;
 }
 
 void	arg_manager(int ac, char **av, t_stack **stack_a)
@@ -95,4 +96,5 @@ void	arg_manager(int ac, char **av, t_stack **stack_a)
 		free(args);
 	}
 	link_back(stack_a);
+	mark_pos(stack_a, INT_MIN);
 }

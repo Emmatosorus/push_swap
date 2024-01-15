@@ -6,7 +6,7 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 14:24:56 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/10 14:01:29 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/15 17:50:36 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,16 @@ int	ft_lstsize(t_stack *lst)
 {
 	int		i;
 	t_stack	*ptr;
-	t_stack	*prev;
 
-	i = 0;
+	i = 1;
 	ptr = lst;
+	ptr = ptr->next;
 	if (!lst)
 		return (0);
-	while (ptr->next != NULL)
+	while (ptr->start == false)
 	{
 		i++;
-		ft_printf("\nnb = %d\n", ptr->content); // remove
-		ft_printf("start = %d\n", ptr->start); // remove
-		prev = ptr->prev;
-		ft_printf("previous = %d\n", prev->content); // remove
 		ptr = ptr->next;
 	}
-	ft_printf("\nnb = %d\n", ptr->content); // remove
-	ft_printf("start = %d\n", ptr->start); // remove
-	prev = ptr->prev;
-	ft_printf("previous = %d\n", prev->content); // remove
-	return (i + 1);
+	return (i);
 }

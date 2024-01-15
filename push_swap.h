@@ -6,7 +6,7 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 15:24:47 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/15 15:57:11 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/15 18:54:49 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 typedef struct s_stack
 {
 	int				content;
+	int				final_pos;
 	bool			start;
 	struct s_stack	*prev;
 	struct s_stack	*next;
@@ -31,6 +32,7 @@ typedef struct s_stack
 void	arg_manager(int ac, char **av, t_stack **stack_a);
 t_stack	*ft_struct(int nb, bool start);
 int		ft_dup_check(int nb, t_stack **lst);
+void	mark_pos(t_stack **lst, int max);
 void	ft_lstadd_back(t_stack **lst, t_stack *new);
 int		ft_lstsize(t_stack *lst);
 void	ft_lstclear(t_stack **lst);
