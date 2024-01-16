@@ -6,18 +6,32 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 10:07:20 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/08 10:13:53 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/16 17:26:14 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void    push_a()
+#include "../push_swap.h"
+
+void	push_a(t_stack **a, t_stack **b)
 {
-    // Put 1st element of b at top of a
-    // Do nothing if b is empty
+	t_stack	*temp;
+
+	if (a && b)
+	{
+		temp = *b;
+		rm_link(b);
+		add_link(a, &temp);
+	}
 }
 
-void    push_b()
+void	push_b(t_stack **a, t_stack **b)
 {
-    // Put 1st element of a at top of b
-    // Do nothing if a is empty
+	t_stack	*temp;
+
+	if (a && b)
+	{
+		temp = *a;
+		rm_link(a);
+		add_link(b, &temp);
+	}
 }

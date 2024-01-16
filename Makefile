@@ -14,7 +14,13 @@ SRC = \
 	structs/ft_lstadd_back_bonus.c \
 	structs/ft_lstclear_bonus.c \
 	structs/ft_lstsize_bonus.c \
-	structs/ft_lstlast_bonus.c
+	structs/ft_lstlast_bonus.c \
+	moves/move_tools.c \
+	moves/pushes.c \
+	moves/rotates.c \
+	moves/rev_rotates.c \
+	moves/swaps.c
+	# algorythme/sort_stacks.c
 
 	# structs/ft_lstnew_bonus.c \
 	# structs/ft_lstdelone_bonus.c \

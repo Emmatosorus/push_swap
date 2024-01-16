@@ -6,7 +6,7 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 13:30:59 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/16 11:40:45 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/16 17:14:57 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	arg_check(char **args, int j, t_stack **stack_a)
 	i = 0;
 	while (str[i])
 	{
-		if (!(ft_isdigit(str[i]) || (str[i] == '-' && ft_isdigit(str[i+1]))))
+		if (!(ft_isdigit(str[i]) || (str[i] == '-' && ft_isdigit(str[i + 1]))))
 			error_exit(stack_a, args, j);
 		i++;
 	}
@@ -81,7 +81,7 @@ void	link_back(t_stack **stack_a)
 	last->next = first;
 }
 
-void	arg_manager(int ac, char **av, t_stack **stack_a)
+void	arg_parse(int ac, char **av, t_stack **stack_a)
 {
 	int		i;
 	int		stack_size;

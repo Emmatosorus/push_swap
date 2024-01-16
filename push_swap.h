@@ -6,7 +6,7 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 15:24:47 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/16 11:34:17 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/16 17:18:45 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ typedef struct s_stack
 	struct s_stack	*next;
 }					t_stack;
 
-void	arg_manager(int ac, char **av, t_stack **stack_a);
+void	arg_parse(int ac, char **av, t_stack **stack_a);
+void	sort_stacks(t_stack **stack_a, t_stack **stack_b, char **moves);
 t_stack	*ft_struct(int nb, bool start);
 int		ft_dup_check(int nb, t_stack **lst);
 void	mark_pos(t_stack **lst, int max, int rounds, int size);
@@ -39,5 +40,18 @@ void	ft_lstclear(t_stack **lst);
 void	ft_lstadd_front(t_stack *lst, t_stack *new);
 t_stack	*ft_lstlast(t_stack *lst);
 void	error_exit(t_stack **stack_a, char **strs, int i);
+void	rm_link(t_stack **stk);
+void	add_link(t_stack **stk, t_stack **new);
+void	push_a(t_stack **a, t_stack **b);
+void	push_b(t_stack **a, t_stack **b);
+void	rotate_a(t_stack **a);
+void	rotate_b(t_stack **b);
+void	rotate_both(t_stack **a, t_stack **b);
+void	rev_rotate_a(t_stack **a);
+void	rev_rotate_b(t_stack **b);
+void	rev_rotate_both(t_stack **a, t_stack **b);
+void	swap_a(t_stack **a);
+void	swap_b(t_stack **b);
+void	swap_both(t_stack **a, t_stack **b);
 
 #endif
