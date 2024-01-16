@@ -6,7 +6,7 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 15:24:42 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/15 18:49:51 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/16 11:37:02 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	ft_lstprint(t_stack *lst)
 	while (ptr->start == false || (i == 0 && ptr->start == true))
 	{
 		i++;
-		ft_printf("\nnb = %d\n", ptr->content);
+		ft_printf("\nnb = %d -> %d\n", ptr->content, ptr->final_pos);
 		ft_printf("start = %d\n", ptr->start);
 		ft_printf("pos = %d\n", ptr->final_pos);
 		prev = ptr->prev;

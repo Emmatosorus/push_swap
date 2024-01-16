@@ -6,7 +6,7 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 13:30:59 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/15 18:54:43 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/16 11:40:45 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ int	arg_check(char **args, int j, t_stack **stack_a)
 	i = 0;
 	while (str[i])
 	{
-		if (!((str[i] >= '0' && str[i] <= '9') || str[i] == '-'))
-			error_exit(stack_a, NULL, args);
+		if (!(ft_isdigit(str[i]) || (str[i] == '-' && ft_isdigit(str[i+1]))))
+			error_exit(stack_a, args, j);
 		i++;
 	}
 	nb = ft_atoi(str);
 	if ((nb == 0 && ft_strlen(str) != 1) || ft_dup_check(nb, stack_a) == -1)
-		error_exit(stack_a, NULL, args);
+		error_exit(stack_a, args, j);
 	return (nb);
 }
 
@@ -65,7 +65,7 @@ void	make_list(int i, char **args, t_stack **stack_a)
 			start = false;
 		error = create_struct(arg_check(args, j, stack_a), stack_a, start);
 		if (error < 0)
-			error_exit(stack_a, NULL, args);
+			error_exit(stack_a, args, 0);
 		free(args[j]);
 	}
 }
@@ -84,6 +84,7 @@ void	link_back(t_stack **stack_a)
 void	arg_manager(int ac, char **av, t_stack **stack_a)
 {
 	int		i;
+	int		stack_size;
 	char	**args;
 
 	i = 0;
@@ -91,10 +92,11 @@ void	arg_manager(int ac, char **av, t_stack **stack_a)
 	{
 		args = ft_split(av[i], ' ');
 		if (!args)
-			error_exit(stack_a, NULL, NULL);
+			error_exit(stack_a, NULL, 0);
 		make_list(i, args, stack_a);
 		free(args);
 	}
 	link_back(stack_a);
-	mark_pos(stack_a, INT_MIN);
+	stack_size = ft_lstsize(*stack_a);
+	mark_pos(stack_a, INT_MIN, stack_size, stack_size);
 }

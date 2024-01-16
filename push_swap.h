@@ -6,7 +6,7 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 15:24:47 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/15 18:54:49 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/16 11:34:17 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,12 @@ typedef struct s_stack
 void	arg_manager(int ac, char **av, t_stack **stack_a);
 t_stack	*ft_struct(int nb, bool start);
 int		ft_dup_check(int nb, t_stack **lst);
-void	mark_pos(t_stack **lst, int max);
+void	mark_pos(t_stack **lst, int max, int rounds, int size);
 void	ft_lstadd_back(t_stack **lst, t_stack *new);
 int		ft_lstsize(t_stack *lst);
 void	ft_lstclear(t_stack **lst);
 void	ft_lstadd_front(t_stack *lst, t_stack *new);
 t_stack	*ft_lstlast(t_stack *lst);
-void	error_exit(t_stack **stack_a, char *str, char **strs);
+void	error_exit(t_stack **stack_a, char **strs, int i);
 
 #endif
