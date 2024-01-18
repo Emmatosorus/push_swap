@@ -19,8 +19,12 @@ SRC = \
 	moves/pushes.c \
 	moves/rotates.c \
 	moves/rev_rotates.c \
-	moves/swaps.c
-	# algorythme/sort_stacks.c
+	moves/swaps.c \
+	algorythme/order_checkers.c \
+	algorythme/sort_stacks.c \
+	algorythme/sorte_tools.c \
+	algorythme/rotate_tools.c \
+	algorythme/swap_tools.c
 
 	# structs/ft_lstnew_bonus.c \
 	# structs/ft_lstdelone_bonus.c \

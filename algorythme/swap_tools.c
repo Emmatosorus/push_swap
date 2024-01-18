@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
+/*   swap_tools.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 16:15:31 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/17 12:55:04 by epolitze         ###   ########.fr       */
+/*   Created: 2024/01/18 10:59:25 by epolitze          #+#    #+#             */
+/*   Updated: 2024/01/18 17:33:44 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-t_stack	*ft_lstnew(void *content)
+void	swap(t_stack **a, t_stack **b, char c)
 {
-	t_stack			*list;
+	int	ad;
+	int	bd;
 
-	list = (t_stack *)malloc(sizeof(t_stack));
-	if (!list)
-		return (NULL);
-	list->nb = content;
-	list->next = NULL;
-	return (list);
+	ad = is_in_order(a);
+	bd = is_in_order(b);
+	if (c == 'k' && ad == bd && ad == -1)
+		swap_both(a, b);
+	else if (c == 'a' && ad == -1)
+		swap_a(a, false);
+	else if (c == 'b' && bd == -1)
+		swap_b(b, false);
 }

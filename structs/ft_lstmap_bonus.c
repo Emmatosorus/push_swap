@@ -6,7 +6,7 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 11:14:12 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/09 14:30:04 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/17 12:55:08 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_stack	*ft_lstmap(t_stack *lst, void *(*f)(void *), void (*del)(void *))
 	nwlst = NULL;
 	while (lst && f && del)
 	{
-		c = f(lst->content);
+		c = f(lst->nb);
 		if (!c)
 		{
 			ft_lstclear(&nwlst, del);

@@ -6,7 +6,7 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 14:05:58 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/16 11:37:55 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/17 12:54:29 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_stack	*ft_struct(int nb, bool start)
 	list = (t_stack *)malloc(sizeof(t_stack));
 	if (!list)
 		return (NULL);
-	list->content = nb;
+	list->nb = nb;
 	list->final_pos = -1;
 	list->start = start;
 	list->prev = NULL;
@@ -36,7 +36,7 @@ int	ft_dup_check(int nb, t_stack **lst)
 		ptr = *lst;
 		while (ptr)
 		{
-			if (ptr->content == nb)
+			if (ptr->nb == nb)
 				return (-1);
 			ptr = ptr->next;
 		}
@@ -58,10 +58,10 @@ void	mark_pos(t_stack **lst, int max, int rounds, int size)
 		ptr = ptr->next;
 		while (rounds > 0)
 		{
-			if (ptr->final_pos == -1 && (ptr->content > max
-					|| (ptr->content == max && max == INT_MIN)))
+			if (ptr->final_pos == -1 && (ptr->nb > max
+					|| (ptr->nb == max && max == INT_MIN)))
 			{
-				max = ptr->content;
+				max = ptr->nb;
 				temp = ptr;
 			}
 			ptr = ptr->next;
