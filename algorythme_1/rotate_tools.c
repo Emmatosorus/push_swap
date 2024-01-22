@@ -6,48 +6,52 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 10:58:42 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/19 12:43:26 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/22 16:10:14 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	rotate_both_dir(t_stack **a, t_stack **b, int dir)
+int	next_not_smaller(t_stack **stack, int pos)
 {
-	int	ad;
-	int	bd;
+	t_stack	*next;
+	t_stack	*ptr;
 
-	ad = is_in_order(a);
-	bd = is_in_order(b);
-	if (ad == -1 && bd == -1)
-	{
-		if (dir == 1)
-			rotate_both(a, b);
-		if (dir == -1)
-			rev_rotate_both(a, b);
-	}
+	ptr = *stack;
+	while (ptr->final_pos != pos)
+		ptr = ptr->next;
+	next = ptr->next;
+	if (ptr->final_pos > next->final_pos)
+		return (-1);
+	return (1);
 }
 
-void	rotate_a_dir(t_stack **a, int dir)
+int	get_direction(t_stack **stack)
 {
-	if (is_in_order(a) == -1)
-	{
-		if (dir == 1)
-			rotate_a(a, false);
-		else if (dir == -1)
-			rev_rotate_a(a, false);
-	}
-}
+	int		bkwd;
+	int		frwd;
+	int		next;
+	t_stack	*ptr;
+	t_stack	*top;
 
-void	rotate_b_dir(t_stack **b, int dir)
-{
-	if (is_in_order(b) == -1)
+	bkwd = 0;
+	frwd = 0;
+	top = *stack;
+	ptr = top;
+	while (next_not_smaller(stack, ptr->final_pos) == 1)
 	{
-		if (dir == 1)
-			rotate_b(b, false);
-		else if (dir == -1)
-			rev_rotate_b(b, false);
+		frwd++;
+		ptr = ptr->next;
 	}
+	ptr = ptr->next;
+	frwd++;
+	next = ptr->final_pos;
+	ptr = top;
+	while (ptr->final_pos != next && bkwd++ <= frwd)
+		ptr = ptr->prev;
+	if (frwd <= bkwd)
+		return (1);
+	return (-1);
 }
 
 int	rotate_who(t_stack **a, t_stack **b)

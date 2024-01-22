@@ -6,7 +6,7 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 15:24:47 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/19 12:39:02 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/22 16:25:27 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,11 @@ typedef struct s_stack
 	struct s_stack	*next;
 }					t_stack;
 
+// ---------- Needed for Main ------------
 void	arg_parse(int ac, char **av, t_stack **stack_a);
 void	stack_sorter(t_stack **a, t_stack **b);
+
+// ---------- Needed for Lists -----------
 t_stack	*ft_struct(int nb, bool start);
 int		ft_dup_check(int nb, t_stack **lst);
 void	mark_pos(t_stack **lst, int max, int rounds, int size);
@@ -40,19 +43,23 @@ void	ft_lstclear(t_stack **lst);
 void	ft_lstadd_front(t_stack *lst, t_stack *new);
 t_stack	*ft_lstlast(t_stack *lst);
 void	error_exit(t_stack **stack_a, char **strs, int i);
+
+// ---------- Needed for Algo 1 ----------
 int		is_sorted(t_stack **stack);
 int		is_next_smaller(t_stack **stack);
+int		next_is_sorted(t_stack **stack);
 int		is_in_order(t_stack **stack);
 int		get_smallest(t_stack **stack);
 int		get_biggest(t_stack **stack);
 int		get_direction(t_stack **stack);
 void	b_has_max(t_stack **a, t_stack **b);
-void	rotate_both_dir(t_stack **a, t_stack **b, int dir);
-void	rotate_a_dir(t_stack **a, int dir);
-void	rotate_b_dir(t_stack **b, int dir);
 int		rotate_who(t_stack **a, t_stack **b);
 void	rotate_anb(t_stack **a, t_stack **b);
-void	swap(t_stack **a, t_stack **b, char c);
+
+// ---------- Needed for Algo 2 ----------
+
+// ---------- Needed for Moves -----------
+
 void	rm_link(t_stack **stk);
 void	add_link(t_stack **stk, t_stack **new);
 void	push_a(t_stack **a, t_stack **b);
