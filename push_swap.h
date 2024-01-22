@@ -6,7 +6,7 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 15:24:47 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/18 17:29:33 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/19 12:39:02 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,8 @@ void	b_has_max(t_stack **a, t_stack **b);
 void	rotate_both_dir(t_stack **a, t_stack **b, int dir);
 void	rotate_a_dir(t_stack **a, int dir);
 void	rotate_b_dir(t_stack **b, int dir);
-void	rotate(t_stack **a, t_stack **b, char c);
+int		rotate_who(t_stack **a, t_stack **b);
+void	rotate_anb(t_stack **a, t_stack **b);
 void	swap(t_stack **a, t_stack **b, char c);
 void	rm_link(t_stack **stk);
 void	add_link(t_stack **stk, t_stack **new);
