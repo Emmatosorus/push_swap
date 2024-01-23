@@ -6,12 +6,11 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 12:48:44 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/22 15:17:44 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/23 18:26:23 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
 
 void	rotate_tops(t_stack **a, t_stack **b)
 {
@@ -70,9 +69,11 @@ void	unite_stacks(t_stack **a, t_stack **b, int size)
 	t_stack	*ptr_a;
 	t_stack	*ptr_b;
 	int		max;
+	int		tmp;
 
 	ptr_a = *a;
 	ptr_b = *b;
+	tmp = 0;
 	while (ft_lstsize(*a) != size)
 	{
 		max = get_biggest(a);
@@ -88,16 +89,18 @@ void	unite_stacks(t_stack **a, t_stack **b, int size)
 		ptr_a = *a;
 		ptr_b = *b;
 	}
-	while (is_sorted(a) == -1)
+	while (is_sorted(a) == -1 && tmp++ < 25)
 		rotate_tops(a, b);
 }
 
-void	stack_sorter(t_stack **a, t_stack **b)
+void	stack_sorter1(t_stack **a, t_stack **b)
 {
 	int		size;
 	int		big_a;
 	int		big_b;
+	int		tmp;
 
+	tmp = 0;
 	size = ft_lstsize(*a);
 	if (is_sorted(a) == -1)
 	{
@@ -107,7 +110,7 @@ void	stack_sorter(t_stack **a, t_stack **b)
 				devide_stacks(a, b, size);
 			big_a = get_biggest(a);
 			big_b = get_biggest(b);
-			while (is_sorted(a) == -1 || is_sorted(b) == -1)
+			while ((is_sorted(a) == -1 || is_sorted(b) == -1) && tmp++ < 50)
 				sort_tops(a, b, big_a, big_b);
 			unite_stacks(a, b, size);
 		}

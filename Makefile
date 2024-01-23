@@ -20,7 +20,12 @@ SRC = \
 	moves/rotates.c \
 	moves/rev_rotates.c \
 	moves/swaps.c \
-	algorythme_1/order_checkers.c \
+	algorythme_2/sort_stacks.c \
+	algorythme_2/pre_sort.c \
+	algorythme_2/cost_math.c \
+	algorythme_2/cost_tools_forward.c \
+	algorythme_2/cost_tools_bckward.c \
+	algorythme_2/order_checkers.c \
 	algorythme_1/sort_stacks.c \
 	algorythme_1/sorte_tools.c \
 	algorythme_1/rotate_tools.c

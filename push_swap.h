@@ -6,14 +6,14 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 15:24:47 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/22 16:25:27 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/23 18:16:40 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <stdio.h> // Remove this for the love of God
+# include <stdio.h> // Remove this for the love of God !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdbool.h>
@@ -31,7 +31,8 @@ typedef struct s_stack
 
 // ---------- Needed for Main ------------
 void	arg_parse(int ac, char **av, t_stack **stack_a);
-void	stack_sorter(t_stack **a, t_stack **b);
+void	stack_sorter1(t_stack **a, t_stack **b);
+void	stack_sorter2(t_stack **a, t_stack **b);
 
 // ---------- Needed for Lists -----------
 t_stack	*ft_struct(int nb, bool start);
@@ -57,6 +58,13 @@ int		rotate_who(t_stack **a, t_stack **b);
 void	rotate_anb(t_stack **a, t_stack **b);
 
 // ---------- Needed for Algo 2 ----------
+void	move_to_b(t_stack **a, t_stack **b);
+int		get_b_len(t_stack *ptr, int pos);
+int		get_a_len(t_stack **a, int pos);
+int		get_low_cost(t_stack **a, t_stack **b);
+int		get_forward_len(t_stack **a, int pos);
+int		get_bckward_len(t_stack **a, int pos);
+void	final_rotate(t_stack **a);
 
 // ---------- Needed for Moves -----------
 
