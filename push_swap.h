@@ -6,7 +6,7 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 15:24:47 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/23 18:16:40 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/24 19:26:11 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ typedef struct s_stack
 
 // ---------- Needed for Main ------------
 void	arg_parse(int ac, char **av, t_stack **stack_a);
-void	stack_sorter1(t_stack **a, t_stack **b);
-void	stack_sorter2(t_stack **a, t_stack **b);
+void	small_stack_sorter(t_stack **a, t_stack **b);
+void	big_stack_sorter(t_stack **a, t_stack **b);
 
 // ---------- Needed for Lists -----------
 t_stack	*ft_struct(int nb, bool start);
@@ -48,7 +48,6 @@ void	error_exit(t_stack **stack_a, char **strs, int i);
 // ---------- Needed for Algo 1 ----------
 int		is_sorted(t_stack **stack);
 int		is_next_smaller(t_stack **stack);
-int		next_is_sorted(t_stack **stack);
 int		is_in_order(t_stack **stack);
 int		get_smallest(t_stack **stack);
 int		get_biggest(t_stack **stack);

@@ -39,11 +39,11 @@ int	get_b_len(t_stack *ptr, int pos)
 
 int	get_a_len(t_stack **a, int pos)
 {
-	t_stack	*ptr;
+	//t_stack	*ptr;
 	int		ro_len;
 	int		rv_len;
 
-	ptr = *a;
+	//ptr = *a;
 	ro_len = get_forward_len(a, pos);
 	rv_len = get_bckward_len(a, pos);
 	if (ro_len < (rv_len * -1))

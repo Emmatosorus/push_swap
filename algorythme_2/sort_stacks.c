@@ -6,7 +6,7 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 16:15:20 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/23 18:13:17 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/24 19:26:22 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,12 +62,11 @@ void	move_back(t_stack **a, t_stack **b)
 	}
 	else
 		final_pos = ptr->final_pos;
-	//ft_printf("Closest : %d\n", final_pos);
 	move_to_pos(final_pos, a);
 	push_a(a, b);
 }
 
-void	stack_sorter2(t_stack **a, t_stack **b)
+void	big_stack_sorter(t_stack **a, t_stack **b)
 {
 	move_to_b(a, b);
 	while (*b != NULL)

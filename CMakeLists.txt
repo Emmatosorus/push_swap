@@ -1,0 +1,83 @@
+cmake_minimum_required(VERSION 3.27)
+project(push_swap_git C)
+
+set(CMAKE_C_STANDARD 11)
+
+include_directories(.)
+include_directories(libft)
+include_directories(libft/ft_printf)
+include_directories(libft/get_next_line)
+
+add_executable(push_swap_git
+        algorythme_1/sort_stacks.c
+        algorythme_1/sorte_tools.c
+        algorythme_2/cost_math.c
+        algorythme_2/cost_tools_bckward.c
+        algorythme_2/cost_tools_forward.c
+        algorythme_2/order_checkers.c
+        algorythme_2/pre_sort.c
+        algorythme_2/sort_stacks.c
+        errors/error_manager.c
+        libft/ft_printf/ft_printf.c
+        libft/ft_printf/ft_printf.h
+        libft/ft_printf/ft_printf_functions.c
+        libft/ft_printf/ft_printf_hex_functions.c
+        libft/get_next_line/get_next_line.c
+        libft/get_next_line/get_next_line.h
+        libft/ft_atoi.c
+        libft/ft_bzero.c
+        libft/ft_calloc.c
+        libft/ft_isalnum.c
+        libft/ft_isalpha.c
+        libft/ft_isascii.c
+        libft/ft_isdigit.c
+        libft/ft_isprint.c
+        libft/ft_itoa.c
+        libft/ft_memchr.c
+        libft/ft_memcmp.c
+        libft/ft_memcpy.c
+        libft/ft_memmove.c
+        libft/ft_memset.c
+        libft/ft_putchar_fd.c
+        libft/ft_putendl_fd.c
+        libft/ft_putnbr_fd.c
+        libft/ft_putstr_fd.c
+        libft/ft_split.c
+        libft/ft_strchr.c
+        libft/ft_strdup.c
+        libft/ft_striteri.c
+        libft/ft_strjoin.c
+        libft/ft_strlcat.c
+        libft/ft_strlcpy.c
+        libft/ft_strlen.c
+        libft/ft_strmapi.c
+        libft/ft_strncmp.c
+        libft/ft_strncpy.c
+        libft/ft_strnstr.c
+        libft/ft_strrchr.c
+        libft/ft_strtrim.c
+        libft/ft_substr.c
+        libft/ft_tolower.c
+        libft/ft_toupper.c
+        libft/libft.h
+        moves/move_tools.c
+        moves/pushes.c
+        moves/rev_rotates.c
+        moves/rotates.c
+        moves/swaps.c
+        structs/argument_manager.c
+        structs/ft_lstadd_back_bonus.c
+        structs/ft_lstadd_front_bonus.c
+        structs/ft_lstclear_bonus.c
+        #structs/ft_lstdelone_bonus.c
+        #structs/ft_lstiter_bonus.c
+        structs/ft_lstlast_bonus.c
+        #structs/ft_lstmap_bonus.c
+        structs/ft_lstnew_bonus.c
+        structs/ft_lstsize_bonus.c
+        structs/struct_tools.c
+        main.c
+        push_swap.h
+        algorythme_1/rotate_tools.c
+        algorythme_1/sort_stacks.c
+        algorythme_1/sort_tools.c)

@@ -3,56 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   rotate_tools.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
+/*   By: epolitze <epolitze@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/18 10:58:42 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/22 16:10:14 by epolitze         ###   ########.fr       */
+/*   Created: 2024/01/24 18:26:08 by epolitze          #+#    #+#             */
+/*   Updated: 2024/01/24 19:23:25 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-int	next_not_smaller(t_stack **stack, int pos)
-{
-	t_stack	*next;
-	t_stack	*ptr;
-
-	ptr = *stack;
-	while (ptr->final_pos != pos)
-		ptr = ptr->next;
-	next = ptr->next;
-	if (ptr->final_pos > next->final_pos)
-		return (-1);
-	return (1);
-}
-
-int	get_direction(t_stack **stack)
-{
-	int		bkwd;
-	int		frwd;
-	int		next;
-	t_stack	*ptr;
-	t_stack	*top;
-
-	bkwd = 0;
-	frwd = 0;
-	top = *stack;
-	ptr = top;
-	while (next_not_smaller(stack, ptr->final_pos) == 1)
-	{
-		frwd++;
-		ptr = ptr->next;
-	}
-	ptr = ptr->next;
-	frwd++;
-	next = ptr->final_pos;
-	ptr = top;
-	while (ptr->final_pos != next && bkwd++ <= frwd)
-		ptr = ptr->prev;
-	if (frwd <= bkwd)
-		return (1);
-	return (-1);
-}
 
 int	rotate_who(t_stack **a, t_stack **b)
 {

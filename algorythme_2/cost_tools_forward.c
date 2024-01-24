@@ -86,7 +86,6 @@ int	get_forward_len(t_stack **a, int pos)
 		len++;
 		prev = ptr;
 		ptr = next;
-		//ft_printf("What does the fox say?\n");
 		next = next->next;
 	}
 	return (len);

@@ -6,7 +6,7 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 15:24:42 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/23 18:35:02 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/24 19:27:12 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,12 @@ int	main(int ac, char **av)
 		while (is_sorted(&stack_a) == -1)
 			final_rotate(&stack_a);
 	else if (is_sorted(&stack_a) == -1)
-		stack_sorter2(&stack_a, &stack_b);
+	{
+		if (ft_lstsize(stack_a) < 6)
+			small_stack_sorter(&stack_a, &stack_b);
+		else
+			big_stack_sorter(&stack_a, &stack_b);
+	}
 	ft_lstclear(&stack_a);
 	ft_lstclear(&stack_b);
 }

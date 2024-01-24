@@ -27,7 +27,7 @@ SRC = \
 	algorythme_2/cost_tools_bckward.c \
 	algorythme_2/order_checkers.c \
 	algorythme_1/sort_stacks.c \
-	algorythme_1/sorte_tools.c \
+	algorythme_1/sort_tools.c \
 	algorythme_1/rotate_tools.c
 
 	# structs/ft_lstnew_bonus.c \
