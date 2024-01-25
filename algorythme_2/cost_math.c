@@ -6,7 +6,7 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 10:35:37 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/23 15:30:32 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/25 03:16:55 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,9 @@ int	get_b_len(t_stack *ptr, int pos)
 
 int	get_a_len(t_stack **a, int pos)
 {
-	//t_stack	*ptr;
 	int		ro_len;
 	int		rv_len;
 
-	//ptr = *a;
 	ro_len = get_forward_len(a, pos);
 	rv_len = get_bckward_len(a, pos);
 	if (ro_len < (rv_len * -1))

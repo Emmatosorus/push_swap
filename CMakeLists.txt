@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.27)
+cmake_minimum_required(VERSION 3.24)
 project(push_swap_git C)
 
 set(CMAKE_C_STANDARD 11)
@@ -10,7 +10,7 @@ include_directories(libft/get_next_line)
 
 add_executable(push_swap_git
         algorythme_1/sort_stacks.c
-        algorythme_1/sorte_tools.c
+        algorythme_1/sort_tools.c
         algorythme_2/cost_math.c
         algorythme_2/cost_tools_bckward.c
         algorythme_2/cost_tools_forward.c
@@ -80,4 +80,5 @@ add_executable(push_swap_git
         push_swap.h
         algorythme_1/rotate_tools.c
         algorythme_1/sort_stacks.c
-        algorythme_1/sort_tools.c)
+        algorythme_1/sort_tools.c
+        algorythme_2/rotate_tools.c)

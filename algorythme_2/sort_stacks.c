@@ -6,7 +6,7 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 16:15:20 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/24 19:26:22 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/25 11:11:04 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,19 @@ void	final_rotate(t_stack **a)
 		rotate_a(a, false);
 	else
 		rev_rotate_a(a, false);
+}
+
+void	move_both(int pos, t_stack **a, t_stack **b)
+{
+	int	reps_a;
+	int	reps_b;
+
+	reps_a = get_a_len(a, pos);
+	reps_b = get_b_len(*b, pos);
+	if (reps_a < 0)
+		rv_helper(a, b, reps_a, reps_b);
+	else
+		ro_helper(a, b, reps_a, reps_b);
 }
 
 void	move_to_top(int pos, t_stack **b)
@@ -52,17 +65,24 @@ void	move_to_pos(int pos, t_stack **a)
 void	move_back(t_stack **a, t_stack **b)
 {
 	int		final_pos;
+	int 	reps_a;
+	int		reps_b;
 	t_stack	*ptr;
 
 	ptr = *b;
 	if (ptr->next != NULL)
-	{
 		final_pos = get_low_cost(a, b);
-		move_to_top(final_pos, b);
-	}
 	else
 		final_pos = ptr->final_pos;
+	reps_a = get_a_len(a, final_pos);
+	reps_b = get_b_len(*b, final_pos);
+	if ((reps_a > 0 && reps_b > 0) || (reps_a < 0 && reps_b < 0))
+		move_both(final_pos, a, b);
+	else
+	{
+	move_to_top(final_pos, b);
 	move_to_pos(final_pos, a);
+	}
 	push_a(a, b);
 }
 
