@@ -6,7 +6,7 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 13:30:59 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/22 18:08:23 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/26 03:53:49 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ int	arg_check(char **args, int j, t_stack **stack_a)
 	i = 0;
 	while (str[i])
 	{
-		if (!(ft_isdigit(str[i]) 
-				|| (i == 0 && (str[i] == '-' || str[i] == '+') 
-				&& ft_isdigit(str[i + 1]))))
+		if (!(ft_isdigit(str[i])
+				|| (i == 0 && (str[i] == '-' || str[i] == '+')
+					&& ft_isdigit(str[i + 1]))))
 			error_exit(stack_a, args, j);
 		i++;
 	}

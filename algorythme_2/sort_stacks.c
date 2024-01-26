@@ -6,11 +6,11 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 16:15:20 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/26 02:45:33 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/26 03:57:38 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../push_swap.h"
+#include "../push_swap.h"
 
 void	final_rotate(t_stack **a)
 {
@@ -21,19 +21,6 @@ void	final_rotate(t_stack **a)
 		rotate_a(a, false);
 	else
 		rev_rotate_a(a, false);
-}
-
-void	move_both(int pos, t_stack **a, t_stack **b)
-{
-	int	reps_a;
-	int	reps_b;
-
-	reps_a = get_a_len(a, pos);
-	reps_b = get_b_len(*b, pos);
-	if (reps_a < 0)
-		rv_helper(a, b, reps_a, reps_b);
-	else
-		ro_helper(a, b, reps_a, reps_b);
 }
 
 void	move_to_top(int pos, t_stack **b)
@@ -65,7 +52,7 @@ void	move_to_pos(int pos, t_stack **a)
 void	move_back(t_stack **a, t_stack **b)
 {
 	int		final_pos;
-	int 	reps_a;
+	int		reps_a;
 	int		reps_b;
 	t_stack	*ptr;
 

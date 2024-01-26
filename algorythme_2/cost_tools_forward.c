@@ -6,7 +6,7 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 11:43:29 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/23 17:50:43 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/26 04:03:44 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	is_smallest(t_stack *ptr, int pos)
 	if (ptr->final_pos < min)
 		min = ptr->final_pos;
 	ptr = ptr->next;
-	while(ptr->start == false)
+	while (ptr->start == false)
 	{
 		if (ptr->final_pos < min)
 			min = ptr->final_pos;
@@ -71,8 +71,8 @@ static int	xtrem_case(t_stack *ptr)
 int	get_forward_len(t_stack **a, int pos)
 {
 	t_stack	*ptr;
-	t_stack *next;
-	t_stack *prev;
+	t_stack	*next;
+	t_stack	*prev;
 	int		len;
 
 	ptr = *a;

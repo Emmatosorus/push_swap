@@ -6,7 +6,7 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 10:03:43 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/26 03:11:25 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/26 04:00:41 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	del_temp_pos(t_stack **a)
 {
-	t_stack *ptr;
+	t_stack	*ptr;
 
 	ptr = *a;
 	ptr->temp_pos = -1;
@@ -54,13 +54,13 @@ void	mark_temp_pos(t_stack **lst, int max, int rounds, int size)
 	}
 }
 
-int		not_all_medium(t_stack **a, int big_range, int small_range)
+int	not_all_medium(t_stack **a, int big_range, int small_range)
 {
-	t_stack *ptr;
+	t_stack	*ptr;
 
 	ptr = *a;
 	if (ptr->temp_pos <= big_range && ptr->temp_pos >= small_range)
-			return (1);
+		return (1);
 	ptr = ptr->next;
 	while (ptr->start != false)
 	{
@@ -73,10 +73,9 @@ int		not_all_medium(t_stack **a, int big_range, int small_range)
 
 void	move_it_move_it(t_stack **a, t_stack **b, int size)
 {
-	t_stack *ptr;
-	int 	small_range;
-	int 	big_range;
-	int 	j;
+	t_stack	*ptr;
+	int		small_range;
+	int		big_range;
 
 	ptr = *a;
 	small_range = (size / 3);
@@ -87,11 +86,10 @@ void	move_it_move_it(t_stack **a, t_stack **b, int size)
 		if (ptr->temp_pos >= big_range)
 			rotate_b(b, false);
 	}
-	j = 0;
 	ptr = *a;
 	while (ptr->temp_pos <= big_range && ptr->temp_pos >= small_range
-		   && not_all_medium(a, big_range, small_range) == 1
-		   && (big_range - small_range) > 4)
+		&& not_all_medium(a, big_range, small_range) == 1
+		&& (big_range - small_range) > 4)
 	{
 		rotate_a(a, false);
 		ptr = *a;
@@ -101,7 +99,7 @@ void	move_it_move_it(t_stack **a, t_stack **b, int size)
 void	move_to_b(t_stack **a, t_stack **b)
 {
 	t_stack	*ptr;
-	int 	size;
+	int		size;
 
 	ptr = *a;
 	size = ft_lstsize(ptr) + 1;

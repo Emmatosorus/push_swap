@@ -6,7 +6,7 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 10:35:37 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/25 14:42:04 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/26 04:02:55 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	get_b_len(t_stack *ptr, int pos)
 {
-	t_stack *top;
-	int	ro_len;
-	int	rv_len;
+	t_stack	*top;
+	int		ro_len;
+	int		rv_len;
 
 	top = ptr;
 	ro_len = 0;
@@ -74,12 +74,12 @@ int	get_cost(t_stack **a, t_stack **b, int pos)
 		b_rotates *= -1;
 	if (a_rotates < 0)
 		a_rotates *= -1;
-	return (b_rotates + a_rotates );
+	return (b_rotates + a_rotates);
 }
 
 int	get_low_cost(t_stack **a, t_stack **b)
 {
-	t_stack *ptr;
+	t_stack	*ptr;
 	t_stack	*result;
 	int		min_cost;
 	int		temp;

@@ -6,7 +6,7 @@
 /*   By: epolitze <epolitze@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 18:30:44 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/24 19:25:53 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/26 04:20:24 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,11 +88,10 @@ void	sort_tops(t_stack **a, t_stack **b, int big_a, int big_b)
 	rotate_tops(a, b);
 }
 
-void	small_stack_sorter(t_stack **a, t_stack **b)
-{
-	int		size;
-	int		big_a;
-	int		big_b;
+void	small_stack_sorter(t_stack **a, t_stack **b) {
+	int size;
+	int big_a;
+	int big_b;
 
 	size = ft_lstsize(*a);
 	devide_stacks(a, b, size);

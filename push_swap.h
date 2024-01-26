@@ -6,14 +6,15 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 15:24:47 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/25 15:48:11 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/26 03:56:11 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <stdio.h> // Remove this for the love of God !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# include <stdio.h>
+
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdbool.h>
@@ -24,7 +25,7 @@ typedef struct s_stack
 {
 	int				nb;
 	int				final_pos;
-	int 			temp_pos;
+	int				temp_pos;
 	bool			start;
 	struct s_stack	*prev;
 	struct s_stack	*next;
@@ -65,10 +66,9 @@ int		get_low_cost(t_stack **a, t_stack **b);
 int		get_forward_len(t_stack **a, int pos);
 int		get_bckward_len(t_stack **a, int pos);
 void	final_rotate(t_stack **a);
-int 	get_pos(t_stack **stack, int dir);
-int 	get_a_dir(t_stack **a, int pos);
 void	rv_helper(t_stack **a, t_stack **b, int reps_a, int reps_b);
 void	ro_helper(t_stack **a, t_stack **b, int reps_a, int reps_b);
+void	move_both(int pos, t_stack **a, t_stack **b);
 
 // ---------- Needed for Moves -----------
 void	rm_link(t_stack **stk);
