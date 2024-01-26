@@ -6,7 +6,7 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 16:15:20 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/25 11:11:04 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/26 02:45:33 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,8 @@ void	move_back(t_stack **a, t_stack **b)
 		move_both(final_pos, a, b);
 	else
 	{
-	move_to_top(final_pos, b);
-	move_to_pos(final_pos, a);
+		move_to_top(final_pos, b);
+		move_to_pos(final_pos, a);
 	}
 	push_a(a, b);
 }

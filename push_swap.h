@@ -6,7 +6,7 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 15:24:47 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/25 11:08:00 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/25 15:48:11 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct s_stack
 {
 	int				nb;
 	int				final_pos;
+	int 			temp_pos;
 	bool			start;
 	struct s_stack	*prev;
 	struct s_stack	*next;
@@ -68,8 +69,8 @@ int 	get_pos(t_stack **stack, int dir);
 int 	get_a_dir(t_stack **a, int pos);
 void	rv_helper(t_stack **a, t_stack **b, int reps_a, int reps_b);
 void	ro_helper(t_stack **a, t_stack **b, int reps_a, int reps_b);
-// ---------- Needed for Moves -----------
 
+// ---------- Needed for Moves -----------
 void	rm_link(t_stack **stk);
 void	add_link(t_stack **stk, t_stack **new);
 void	push_a(t_stack **a, t_stack **b);
