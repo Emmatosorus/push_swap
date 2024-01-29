@@ -6,7 +6,7 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 15:24:47 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/26 03:56:11 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/29 14:54:20 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ void	ft_lstclear(t_stack **lst);
 void	ft_lstadd_front(t_stack *lst, t_stack *new);
 t_stack	*ft_lstlast(t_stack *lst);
 void	error_exit(t_stack **stack_a, char **strs, int i);
+void	ft_free_stack(t_stack **lst);
 
 // ---------- Needed for Algo 1 ----------
 int		is_sorted(t_stack **stack);

@@ -1,10 +1,20 @@
 CC = cc
 
-CFLAGS = -Werror -Wextra -Wall -MMD -MP -g3#-fsanitize=address
+CFLAGS = -Werror -Wextra -Wall
+
+HDR = push_swap.h
+
+LIB_HDR = libft/libft.h
+
+BNS_HDR = checker_files/checker.h 
 
 LINKER = -Llibft -lft
 
 NAME = push_swap
+
+BNS_NAME = checker
+
+#---------Sources---------#
 
 SRC = \
 	main.c \
@@ -31,14 +41,26 @@ SRC = \
 	algorythme_1/sort_tools.c \
 	algorythme_1/rotate_tools.c
 
-	# structs/ft_lstnew_bonus.c \
-	# structs/ft_lstdelone_bonus.c \
-	# structs/ft_lstadd_front_bonus.c \
-	# structs/ft_lstiter_bonus.c \
-	# structs/ft_lstmap_bonus.c
-
 OBJ = $(SRC:.c=.o)
-OBJ_D = ${OBJ:.o=.d}
+
+BNS_SRC = \
+		errors/error_manager.c \
+		checker_files/main_checker.c \
+		checker_files/checker_arg_manager.c \
+		checker_files/checker_errors.c \
+		structs/argument_manager.c \
+		structs/struct_tools.c \
+		structs/ft_lstadd_back_bonus.c \
+		structs/ft_lstclear_bonus.c \
+		structs/ft_lstsize_bonus.c \
+		structs/ft_lstlast_bonus.c \
+		moves/move_tools.c \
+		moves/pushes.c \
+		moves/rotates.c \
+		moves/rev_rotates.c \
+		moves/swaps.c
+
+BNS_OBJ = $(BNS_SRC:.c=.o)
 
 #---------Rules---------#
 
@@ -47,21 +69,21 @@ all : $(NAME)
 .c.o:
 	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
--include $(OBJ_D)
-
-$(NAME) : $(OBJ)
+$(NAME) : $(OBJ) $(HDR) $(LIB_HDR) $(BNS_OBJ) $(BNS_HDR) $(LIB_HDR)
 	$(MAKE) -C libft
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME) $(LINKER)
-	$(MAKE) clean # You might want to remove this
 
+bonus: $(BNS_OBJ) $(BNS_HDR) $(LIB_HDR)
+	$(MAKE) -C libft
+	$(CC) $(CFLAGS) $(BNS_OBJ) -o $(BNS_NAME) $(LINKER)
 
 clean:
 	$(MAKE) -C libft clean
-	rm -f $(OBJ) $(OBJ_D)
+	rm -f $(OBJ) $(BNS_OBJ)
 
 fclean:	
 	$(MAKE) -C libft fclean
-	rm -f $(OBJ) $(OBJ_D) $(NAME)
+	rm -f $(OBJ) $(BNS_OBJ) $(NAME) $(BNS_NAME)
 
 re: fclean all
 

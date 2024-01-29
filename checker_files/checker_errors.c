@@ -1,60 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_manager.c                                    :+:      :+:    :+:   */
+/*   checker_errors.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/10 13:37:28 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/29 22:11:52 by epolitze         ###   ########.fr       */
+/*   Created: 2024/01/29 14:52:32 by epolitze          #+#    #+#             */
+/*   Updated: 2024/01/29 21:40:57 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "checker.h"
 
-void	ft_free_stack(t_stack **lst)
+void	ft_free_list(t_list **lst)
 {
-	t_stack	*ptr;
-	t_stack	*back;
-	t_stack	*temp;
+	t_list	*ptr;
+	t_list	*temp;
 
-	if (*lst)
+	if (lst && *lst)
 	{
-		back = *lst;
-		if (back->prev != NULL)
-		{
-			back = back->prev;
-			back->next = NULL;
-		}
 		ptr = *lst;
 		while (ptr->next != NULL)
 		{
 			temp = ptr->next;
+			free(ptr->move);
 			free(ptr);
-			if (temp->start == false)
-				ptr = temp;
+			ptr = temp;
 		}
+		free(ptr->move);
 		free(ptr);
 		*lst = NULL;
 	}
 	return ;
 }
 
-void	error_exit(t_stack **stack_a, char **strs, int i)
+void	error_exit_checker(t_stack **a, t_stack **b, t_list **move_list, char *str)
 {
 	write(2, "\x1b[31;1mError\n\x1b[0m", 17);
-	if (strs)
-	{
-		while (strs[i])
-		{
-			if (strs[i])
-				free(strs[i]);
-			i++;
-		}
-		free(strs[i]);
-		free(strs);
-	}
-	ft_free_stack(stack_a);
-	stack_a = NULL;
+	ft_free_stack(a);
+	ft_free_stack(b);
+	ft_free_list(move_list);
+	if (str)
+		free(str);
+	str = NULL;
+	a = NULL;
+	b = NULL;
+	move_list = NULL;
 	exit(EXIT_FAILURE);
 }
