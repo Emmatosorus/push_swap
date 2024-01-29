@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_stacks.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: epolitze <epolitze@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 18:30:44 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/26 04:20:24 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/29 12:01:52 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,30 +74,48 @@ void	sort_tops(t_stack **a, t_stack **b, int big_a, int big_b)
 	t_stack	*ptr_a;
 	t_stack	*ptr_b;
 
+	ptr_b = NULL;
 	ptr_a = *a;
-	ptr_b = *b;
-	if (is_next_smaller(a) == 1 && is_next_smaller(b) == 1
+	if (b != NULL)
+		ptr_b = *b;
+	if (ptr_b != NULL && is_next_smaller(a) == 1 && is_next_smaller(b) == 1
 		&& ptr_a->final_pos != big_a && ptr_b->final_pos != big_b)
 	{
 		swap_both(a, b);
 	}
 	else if (is_next_smaller(a) == 1 && ptr_a->final_pos != big_a)
 		swap_a(a, false);
-	else if (is_next_smaller(b) == 1 && ptr_b->final_pos != big_b)
+	else if (ptr_b != NULL && is_next_smaller(b) == 1 
+		&& ptr_b->final_pos != big_b)
+	{
 		swap_b(b, false);
+	}
 	rotate_tops(a, b);
 }
 
-void	small_stack_sorter(t_stack **a, t_stack **b) {
-	int size;
-	int big_a;
-	int big_b;
+void	small_stack_sorter(t_stack **a, t_stack **b)
+{
+	int	size;
+	int	big_a;
+	int	big_b;
 
 	size = ft_lstsize(*a);
-	devide_stacks(a, b, size);
-	big_a = get_biggest(a);
-	big_b = get_biggest(b);
-	while (is_sorted(a) == -1 || is_sorted(b) == -1)
-		sort_tops(a, b, big_a, big_b);
-	unite_stacks(a, b, size);
+	if (size > 3)
+	{
+		devide_stacks(a, b, size);
+		big_a = get_biggest(a);
+		big_b = get_biggest(b);
+		while (is_sorted(a) == -1 || is_sorted(b) == -1)
+			sort_tops(a, b, big_a, big_b);
+		unite_stacks(a, b, size);
+	}
+	else
+	{
+		big_a = get_biggest(a);
+		while (is_sorted(a) == -1)
+		{
+			//ft_printf("Well at least this works ;-;\n");
+			sort_tops(a, NULL, big_a, 0);
+		}
+	}
 }

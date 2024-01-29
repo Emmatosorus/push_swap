@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate_tools.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: epolitze <epolitze@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 18:26:08 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/24 19:23:25 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/29 12:01:28 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 int	rotate_who(t_stack **a, t_stack **b)
 {
-	if (is_sorted(a) == -1 && is_sorted(b) == -1)
+	if (b != NULL && is_sorted(a) == -1 && is_sorted(b) == -1)
 		return (3);
 	else if (is_sorted(a) == -1)
 		return (1);
-	else if (is_sorted(b) == -1)
+	else if (b != NULL && is_sorted(b) == -1)
 		return (2);
 	return (0);
 }
