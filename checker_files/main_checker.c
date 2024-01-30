@@ -6,7 +6,7 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 12:23:32 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/30 13:48:03 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/30 14:19:35 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	check_sort(t_stack **a, t_stack **b)
 	{
 		if (ptr->final_pos > next->final_pos)
 		{
-			ft_printf("\x1b[31;6;1mKO\n\x1b[0m");
+			ft_printf("\x1b[31;1mKO\n\x1b[0m");
 			return ;
 		}
 		ptr = next;

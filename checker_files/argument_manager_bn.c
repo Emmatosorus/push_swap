@@ -6,11 +6,11 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 13:30:59 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/30 13:47:09 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/30 14:24:09 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "checker.h"
 
 int	arg_check(char **args, int j, t_stack **stack_a)
 {

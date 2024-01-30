@@ -6,7 +6,7 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 09:59:58 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/30 12:35:42 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/30 14:28:45 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,16 @@ void	get_moves(t_stack **a, t_stack **b, t_list **move_list);
 void	checker_exit(t_stack **a, t_stack **b, t_list **mv_lst, char *str);
 void	ft_free_list(t_list **lst);
 void	ft_free_stack(t_stack **lst);
+void	error_exit(t_stack **stack_a, char **strs, int i);
+int		ft_dup_check(int nb, t_stack **lst);
+
+// ---------- Needed for Structs ---------
+void	mark_pos(t_stack **lst, int max, int rounds, int size);
+t_stack	*ft_struct(int nb, bool start);
+void	ft_lstclear(t_stack **lst);
+void	ft_lstadd_back(t_stack **lst, t_stack *new);
+t_stack	*ft_lstlast(t_stack *lst);
+int		ft_lstsize(t_stack *lst);
 
 // ---------- Needed for Moves -----------
 void	rm_link(t_stack **stk);
