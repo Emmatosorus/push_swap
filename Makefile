@@ -28,16 +28,16 @@ SRC = \
 	moves/rotates.c \
 	moves/rev_rotates.c \
 	moves/swaps.c \
-	algorythme_2/sort_stacks.c \
-	algorythme_2/pre_sort.c \
-	algorythme_2/rotate_tools.c \
-	algorythme_2/cost_math.c \
-	algorythme_2/cost_tools_forward.c \
-	algorythme_2/cost_tools_bckward.c \
-	algorythme_2/order_checkers.c \
-	algorythme_1/sort_stacks.c \
-	algorythme_1/sort_tools.c \
-	algorythme_1/rotate_tools.c
+	algorythm_big/sort_stacks.c \
+	algorythm_big/pre_sort.c \
+	algorythm_big/rotate_tools.c \
+	algorythm_big/cost_math.c \
+	algorythm_big/cost_tools_forward.c \
+	algorythm_big/cost_tools_bckward.c \
+	algorythm_big/order_checkers.c \
+	algorythm_small/sort_stacks.c \
+	algorythm_small/sort_tools.c \
+	algorythm_small/rotate_tools.c
 
 OBJ = $(SRC:%.c=%.o)
 
