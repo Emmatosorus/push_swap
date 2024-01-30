@@ -5,15 +5,12 @@ CFLAGS = -Werror -Wextra -Wall -g3
 HDR = push_swap.h
 
 LIB_HDR = libft/libft.h
-LIB_AR = libft/libft.a
 
-BNS_HDR = checker_files/checker.h 
+LIB_AR = libft/libft.a
 
 LINKER = -Llibft -lft
 
 NAME = push_swap
-
-BNS_NAME = checker
 
 #---------Sources---------#
 
@@ -44,24 +41,6 @@ SRC = \
 
 OBJ = $(SRC:%.c=%.o)
 
-BNS_SRC = \
-	checker_files/main_checker.c \
-	checker_files/checker_arg_manager.c \
-	checker_files/checker_errors.c \
-	checker_files/argument_manager_bn.c \
-	checker_files/struct_tools_bn.c \
-	checker_files/ft_lstadd_back_bn.c \
-	checker_files/ft_lstclear_bn.c \
-	checker_files/ft_lstsize_bn.c \
-	checker_files/ft_lstlast_bn.c \
-	checker_files/move_tools_bn.c \
-	checker_files/pushes_bn.c \
-	checker_files/rotates_bn.c \
-	checker_files/rev_rotates_bn.c \
-	checker_files/swaps_bn.c
-
-BNS_OBJ = $(BNS_SRC:%.c=%.o)
-
 #---------Rules---------#
 
 all : $(NAME)
@@ -72,20 +51,21 @@ all : $(NAME)
 $(NAME) : $(OBJ)  
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME) $(LINKER)
 
-bonus: $(BNS_OBJ) $(BNS_HDR) $(LIB_HDR)
-	$(MAKE) -C libft
-	$(CC) $(CFLAGS) $(BNS_OBJ) -o $(BNS_NAME) $(LINKER)
-
-clean:
-	$(MAKE) -C libft clean
-	rm -f $(OBJ) $(BNS_OBJ)
-
-fclean:	
-	$(MAKE) -C libft fclean
-	rm -f $(OBJ) $(BNS_OBJ) $(NAME) $(BNS_NAME)
+bonus: force
+	$(MAKE) -C checker_files
 
 $(LIB_AR): force
 	$(MAKE) -C libft
+
+clean:
+	$(MAKE) -C libft clean
+	$(MAKE) -C checker_files clean
+	rm -f $(OBJ)
+
+fclean:	
+	$(MAKE) -C libft fclean
+	$(MAKE) -C checker_files fclean
+	rm -f $(OBJ) $(NAME)
 
 re: fclean all
 
