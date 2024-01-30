@@ -6,20 +6,20 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 18:30:44 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/30 09:55:39 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/30 15:06:00 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	devide_stacks(t_stack **a, t_stack **b, int size)
+static void	devide_stacks(t_stack **a, t_stack **b, int size)
 {
 	size = size / 2;
 	while (size-- > 0)
 		push_b(a, b);
 }
 
-void	unite_stacks(t_stack **a, t_stack **b, int size)
+static void	unite_stacks(t_stack **a, t_stack **b, int size)
 {
 	t_stack	*ptr_a;
 	t_stack	*ptr_b;
@@ -46,7 +46,7 @@ void	unite_stacks(t_stack **a, t_stack **b, int size)
 		rotate_a(a, false);
 }
 
-void	rotate_tops(t_stack **a, t_stack **b)
+static void	rotate_tops(t_stack **a, t_stack **b)
 {
 	int	who;
 
@@ -69,7 +69,7 @@ void	rotate_tops(t_stack **a, t_stack **b)
 		rotate_anb(a, b);
 }
 
-void	sort_tops(t_stack **a, t_stack **b, int big_a, int big_b)
+static void	sort_tops(t_stack **a, t_stack **b, int big_a, int big_b)
 {
 	t_stack	*ptr_a;
 	t_stack	*ptr_b;

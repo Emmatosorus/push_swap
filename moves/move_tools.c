@@ -6,13 +6,13 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 13:18:42 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/17 12:25:34 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/30 14:56:14 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	rm_second(t_stack **stk)
+static void	rm_second(t_stack **stk)
 {
 	t_stack	*first;
 	t_stack	*other;
@@ -55,7 +55,7 @@ void	rm_link(t_stack **stk)
 	}
 }
 
-void	add_second(t_stack **stk, t_stack **new)
+static void	add_second(t_stack **stk, t_stack **new)
 {
 	t_stack	*secnd;
 	t_stack	*first;

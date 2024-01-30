@@ -6,7 +6,7 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 18:32:34 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/30 09:56:01 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/30 15:06:47 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	get_biggest(t_stack **stack)
 	return (max);
 }
 
-int	next_not_small(t_stack **stack, int pos)
+static int	next_not_small(t_stack **stack, int pos)
 {
 	t_stack	*next;
 	t_stack	*ptr;

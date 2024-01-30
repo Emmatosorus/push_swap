@@ -6,13 +6,13 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 10:03:43 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/26 04:00:41 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/30 15:01:19 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	del_temp_pos(t_stack **a)
+static void	del_temp_pos(t_stack **a)
 {
 	t_stack	*ptr;
 
@@ -26,7 +26,7 @@ void	del_temp_pos(t_stack **a)
 	}
 }
 
-void	mark_temp_pos(t_stack **lst, int max, int rounds, int size)
+static void	mark_temp_pos(t_stack **lst, int max, int rounds, int size)
 {
 	int		size_save;
 	t_stack	*ptr;
@@ -54,7 +54,7 @@ void	mark_temp_pos(t_stack **lst, int max, int rounds, int size)
 	}
 }
 
-int	not_all_medium(t_stack **a, int big_range, int small_range)
+static int	not_all_medium(t_stack **a, int big_range, int small_range)
 {
 	t_stack	*ptr;
 
@@ -71,7 +71,7 @@ int	not_all_medium(t_stack **a, int big_range, int small_range)
 	return (-1);
 }
 
-void	move_it_move_it(t_stack **a, t_stack **b, int size)
+static void	move_number(t_stack **a, t_stack **b, int size)
 {
 	t_stack	*ptr;
 	int		small_range;
@@ -107,7 +107,7 @@ void	move_to_b(t_stack **a, t_stack **b)
 	{
 		del_temp_pos(a);
 		mark_temp_pos(a, INT_MIN, size, size);
-		move_it_move_it(a, b, size);
+		move_number(a, b, size);
 		size--;
 		ptr = *a;
 	}

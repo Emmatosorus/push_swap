@@ -6,13 +6,13 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 12:38:09 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/30 14:24:13 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/30 15:12:02 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-void	add_struct(t_list **move_list, char *str, t_stack **a, t_stack **b)
+static void	add_struct(t_list **move_list, char *str, t_stack **a, t_stack **b)
 {
 	t_list	*ptr;
 	t_list	*new;
@@ -38,7 +38,7 @@ void	add_struct(t_list **move_list, char *str, t_stack **a, t_stack **b)
 		ptr->next = new;
 }
 
-int	check_move(char *str)
+static int	check_move(char *str)
 {
 	if (ft_strncmp(str, "sa\n", 5) == 0)
 		return (1);

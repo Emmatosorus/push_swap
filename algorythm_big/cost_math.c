@@ -6,7 +6,7 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 10:35:37 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/26 04:02:55 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/30 14:57:19 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	get_a_len(t_stack **a, int pos)
 	return (rv_len);
 }
 
-int	get_cost(t_stack **a, t_stack **b, int pos)
+static int	get_cost(t_stack **a, t_stack **b, int pos)
 {
 	int	b_rotates;
 	int	a_rotates;

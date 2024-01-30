@@ -6,13 +6,13 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 12:23:32 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/30 14:19:35 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/30 15:13:14 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-void	choose_move(char *str, t_stack **a, t_stack **b)
+static void	choose_move(char *str, t_stack **a, t_stack **b)
 {
 	if (ft_strncmp(str, "sa\n", 5) == 0)
 		swap_a(a);
@@ -38,7 +38,7 @@ void	choose_move(char *str, t_stack **a, t_stack **b)
 		rev_rotate_both(a, b);
 }
 
-void	make_moves(t_list **move_list, t_stack **a, t_stack **b)
+static void	make_moves(t_list **move_list, t_stack **a, t_stack **b)
 {
 	t_list	*ptr;
 
@@ -50,7 +50,7 @@ void	make_moves(t_list **move_list, t_stack **a, t_stack **b)
 	}
 }
 
-void	check_sort(t_stack **a, t_stack **b)
+static void	check_sort(t_stack **a, t_stack **b)
 {
 	t_stack	*ptr;
 	t_stack	*next;

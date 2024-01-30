@@ -6,7 +6,7 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 16:15:20 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/26 03:57:38 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/30 15:05:08 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	final_rotate(t_stack **a)
 		rev_rotate_a(a, false);
 }
 
-void	move_to_top(int pos, t_stack **b)
+static void	move_to_top(int pos, t_stack **b)
 {
 	int		reps;
 
@@ -36,7 +36,7 @@ void	move_to_top(int pos, t_stack **b)
 			rotate_b(b, false);
 }
 
-void	move_to_pos(int pos, t_stack **a)
+static void	move_to_pos(int pos, t_stack **a)
 {
 	int	reps;
 
@@ -49,7 +49,7 @@ void	move_to_pos(int pos, t_stack **a)
 			rotate_a(a, false);
 }
 
-void	move_back(t_stack **a, t_stack **b)
+static void	move_back(t_stack **a, t_stack **b)
 {
 	int		final_pos;
 	int		reps_a;

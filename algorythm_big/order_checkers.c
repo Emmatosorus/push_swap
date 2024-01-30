@@ -6,7 +6,7 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 12:33:12 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/23 18:00:41 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/30 14:58:53 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,24 +69,6 @@ int	is_next_smaller(t_stack **stack)
 		prev = ptr->nb;
 		ptr = ptr->next;
 		if (ptr->nb < prev)
-			return (1);
-	}
-	return (-1);
-}
-
-int	next_is_sorted(t_stack **stack)
-{
-	int		max;
-	t_stack	*ptr;
-	t_stack	*prev;
-
-	ptr = *stack;
-	max = get_biggest(stack);
-	while (ptr->final_pos != max)
-	{
-		prev = ptr;
-		ptr = ptr->next;
-		if (prev->final_pos > ptr->final_pos)
 			return (1);
 	}
 	return (-1);

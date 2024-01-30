@@ -6,13 +6,13 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 13:30:59 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/26 03:53:49 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/30 14:54:28 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	arg_check(char **args, int j, t_stack **stack_a)
+static int	arg_check(char **args, int j, t_stack **stack_a)
 {
 	int		i;
 	long	nb;
@@ -34,7 +34,7 @@ int	arg_check(char **args, int j, t_stack **stack_a)
 	return (nb);
 }
 
-int	create_struct(int nb, t_stack **stack_a, bool start)
+static int	create_struct(int nb, t_stack **stack_a, bool start)
 {
 	t_stack	*new;
 	t_stack	*last;
@@ -53,7 +53,7 @@ int	create_struct(int nb, t_stack **stack_a, bool start)
 	return (1);
 }
 
-void	make_list(int i, char **args, t_stack **stack_a)
+static void	make_list(int i, char **args, t_stack **stack_a)
 {
 	int		j;
 	int		error;
@@ -72,7 +72,7 @@ void	make_list(int i, char **args, t_stack **stack_a)
 	}
 }
 
-void	link_back(t_stack **stack_a)
+static void	link_back(t_stack **stack_a)
 {
 	t_stack	*last;
 	t_stack	*first;
