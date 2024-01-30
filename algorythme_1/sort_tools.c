@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_tools.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: epolitze <epolitze@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 18:32:34 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/26 04:15:03 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/30 09:56:01 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ int	get_biggest(t_stack **stack)
 	if (ptr->next != NULL)
 	{
 		ptr = ptr->next;
-		while (ptr->start == false) {
+		while (ptr->start == false)
+		{
 			if (ptr->final_pos > max)
 				max = ptr->final_pos;
 			ptr = ptr->next;

@@ -6,7 +6,7 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 14:52:32 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/29 21:40:57 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/30 09:59:00 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,17 @@ void	ft_free_list(t_list **lst)
 	return ;
 }
 
-void	error_exit_checker(t_stack **a, t_stack **b, t_list **move_list, char *str)
+void	checker_exit(t_stack **a, t_stack **b, t_list **mv_lst, char *str)
 {
 	write(2, "\x1b[31;1mError\n\x1b[0m", 17);
 	ft_free_stack(a);
 	ft_free_stack(b);
-	ft_free_list(move_list);
+	ft_free_list(mv_lst);
 	if (str)
 		free(str);
 	str = NULL;
 	a = NULL;
 	b = NULL;
-	move_list = NULL;
+	mv_lst = NULL;
 	exit(EXIT_FAILURE);
 }

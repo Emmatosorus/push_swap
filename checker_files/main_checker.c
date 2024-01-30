@@ -6,7 +6,7 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 12:23:32 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/29 18:24:10 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/30 10:00:37 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ int	main(int ac, char **av)
 	move_list = NULL;
 	if (ac <= 1)
 		exit(EXIT_FAILURE);
-	arg_parse(ac , av, &stack_a);
+	arg_parse(ac, av, &stack_a);
 	get_moves(&stack_a, &stack_b, &move_list);
 	make_moves(&move_list, &stack_a, &stack_b);
 	check_sort(&stack_a, &stack_b);

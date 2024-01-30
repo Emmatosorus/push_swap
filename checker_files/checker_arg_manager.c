@@ -6,7 +6,7 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 12:38:09 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/29 21:41:07 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/30 10:01:46 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	add_struct(t_list **move_list, char *str, t_stack **a, t_stack **b)
 	new = (t_list *)malloc(sizeof(t_list));
 	move = ft_strdup(str);
 	if (!new || !move)
-		error_exit_checker(a, b, move_list, str);
+		checker_exit(a, b, move_list, str);
 	new->move = move;
 	new->next = NULL;
 	if (*move_list == NULL)
@@ -77,7 +77,7 @@ void	get_moves(t_stack **a, t_stack **b, t_list **move_list)
 		if (!str)
 			break ;
 		if (check_move(str) == -1)
-			error_exit_checker(a, b, move_list, str);
+			checker_exit(a, b, move_list, str);
 		else
 			add_struct(move_list, str, a, b);
 		free(str);

@@ -6,7 +6,7 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 18:30:44 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/29 12:01:52 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/30 09:55:39 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void	sort_tops(t_stack **a, t_stack **b, int big_a, int big_b)
 	}
 	else if (is_next_smaller(a) == 1 && ptr_a->final_pos != big_a)
 		swap_a(a, false);
-	else if (ptr_b != NULL && is_next_smaller(b) == 1 
+	else if (ptr_b != NULL && is_next_smaller(b) == 1
 		&& ptr_b->final_pos != big_b)
 	{
 		swap_b(b, false);
@@ -113,9 +113,6 @@ void	small_stack_sorter(t_stack **a, t_stack **b)
 	{
 		big_a = get_biggest(a);
 		while (is_sorted(a) == -1)
-		{
-			//ft_printf("Well at least this works ;-;\n");
 			sort_tops(a, NULL, big_a, 0);
-		}
 	}
 }
