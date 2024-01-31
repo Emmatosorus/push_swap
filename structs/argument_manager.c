@@ -6,7 +6,7 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 13:30:59 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/30 14:54:28 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/31 11:18:27 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,11 @@ static int	arg_check(char **args, int j, t_stack **stack_a)
 		i++;
 	}
 	nb = ft_atoi(str);
-	if ((nb == 0 && ft_strlen(str) != 1) || ft_dup_check(nb, stack_a) == -1)
+	if ((nb == 0 && (ft_strlen(str) != 1 && ft_is_zeros(str) != 1))
+		|| ft_dup_check(nb, stack_a) == -1)
+	{
 		error_exit(stack_a, args, j);
+	}
 	return (nb);
 }
 

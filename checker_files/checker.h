@@ -6,7 +6,7 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 09:59:58 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/30 15:09:34 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/31 11:15:56 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	checker_exit(t_stack **a, t_stack **b, t_list **mv_lst, char *str);
 void	ft_free_list(t_list **lst);
 void	ft_free_stack(t_stack **lst);
 void	mark_pos(t_stack **lst, int max, int rounds, int size);
+int		ft_is_zeros(char *str);
 t_stack	*ft_struct(int nb, bool start);
 void	ft_lstclear(t_stack **lst);
 void	ft_lstadd_back(t_stack **lst, t_stack *new);

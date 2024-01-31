@@ -6,11 +6,25 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 14:05:58 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/30 14:55:25 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/31 11:15:46 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+int	ft_is_zeros(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] != '0')
+			return (-1);
+		i++;
+	}
+	return (1);
+}
 
 t_stack	*ft_struct(int nb, bool start)
 {

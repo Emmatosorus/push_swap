@@ -6,7 +6,7 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 15:24:47 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/30 15:08:28 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/01/31 11:15:38 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	big_stack_sorter(t_stack **a, t_stack **b);
 t_stack	*ft_struct(int nb, bool start);
 int		ft_dup_check(int nb, t_stack **lst);
 void	mark_pos(t_stack **lst, int max, int rounds, int size);
+int		ft_is_zeros(char *str);
 void	ft_lstadd_back(t_stack **lst, t_stack *new);
 int		ft_lstsize(t_stack *lst);
 void	ft_lstclear(t_stack **lst);

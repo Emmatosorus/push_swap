@@ -1,6 +1,6 @@
 CC = cc
 
-CFLAGS = -Werror -Wextra -Wall -g3
+CFLAGS = -Werror -Wextra -Wall
 
 HDR = push_swap.h
 
