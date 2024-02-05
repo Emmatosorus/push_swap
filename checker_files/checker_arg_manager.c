@@ -6,7 +6,7 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 12:38:09 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/30 15:12:02 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/02/05 13:04:42 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,20 @@ static void	add_struct(t_list **move_list, char *str, t_stack **a, t_stack **b)
 	char	*move;
 
 	new = NULL;
+	move = NULL;
 	ptr = NULL;
 	if (*move_list != NULL)
 		ptr = *move_list;
-	new = NULL;
 	if (ptr)
 		while (ptr->next != NULL)
 			ptr = ptr->next;
 	new = (t_list *)malloc(sizeof(t_list));
 	move = ft_strdup(str);
 	if (!new || !move)
+	{
+		struct_error(new, move);
 		checker_exit(a, b, move_list, str);
+	}
 	new->move = move;
 	new->next = NULL;
 	if (*move_list == NULL)
@@ -62,8 +65,9 @@ static int	check_move(char *str)
 		return (1);
 	else if (ft_strncmp(str, "rrr\n", 5) == 0)
 		return (1);
-	else
-		return (-1);
+	else if (ft_strncmp(str, "\n", 5) == 0)
+		return (1);
+	return (-1);
 }
 
 void	get_moves(t_stack **a, t_stack **b, t_list **move_list)

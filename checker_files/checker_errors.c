@@ -6,7 +6,7 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 14:52:32 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/30 15:12:26 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/02/05 11:24:16 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,14 @@ void	checker_exit(t_stack **a, t_stack **b, t_list **mv_lst, char *str)
 	b = NULL;
 	mv_lst = NULL;
 	exit(EXIT_FAILURE);
+}
+
+void	struct_error(t_list *new, char *move)
+{
+	if (new)
+		free(new);
+	if (move)
+		free(move);
 }
 
 void	error_exit(t_stack **stack_a, char **strs, int i)

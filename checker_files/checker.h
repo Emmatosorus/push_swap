@@ -6,7 +6,7 @@
 /*   By: epolitze <epolitze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 09:59:58 by epolitze          #+#    #+#             */
-/*   Updated: 2024/01/31 11:15:56 by epolitze         ###   ########.fr       */
+/*   Updated: 2024/02/05 11:22:35 by epolitze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int		ft_dup_check(int nb, t_stack **lst);
 
 // ---------- Needed for Structs ---------
 void	error_exit(t_stack **stack_a, char **strs, int i);
+void	struct_error(t_list *new, char *move);
 void	checker_exit(t_stack **a, t_stack **b, t_list **mv_lst, char *str);
 void	ft_free_list(t_list **lst);
 void	ft_free_stack(t_stack **lst);
